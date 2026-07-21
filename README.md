@@ -20,7 +20,7 @@ CodeBase-RAG-Analyzer is a structural, model-agnostic decision-support system de
 
 1. **Clone the repository:**
 ```bash
-git clone [https://github.com/YourUsername/CodeBase-RAG-Analyzer.git](https://github.com/YourUsername/CodeBase-RAG-Analyzer.git)
+git clone https://github.com/Barbarouge/CodeBase-RAG-Analyzer.git
 cd CodeBase-RAG-Analyzer
 ```
 
@@ -31,7 +31,7 @@ pip install -r requirements.txt
 
 3. **Clone the target codebase (Flask) for testing:**
 ```bash
-git clone [https://github.com/pallets/flask.git](https://github.com/pallets/flask.git) flask
+git clone https://github.com/pallets/flask.git flask
 ```
 
 4. **Environment Variables:**
