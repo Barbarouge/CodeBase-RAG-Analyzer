@@ -10,7 +10,7 @@
 
 > **BSc Computer Science and Digitisation Dissertation Project**  
 > *Automatic Code Base Analysis and Architectural Querying System Using Retrieval-Augmented Generation (RAG) and Large Language Models*  
-> **Author:** Barbaros Yeşilova  
+> **Author:** Barbaros Yesilova  
 > **Institution:** University for the Creative Arts (UCA) & Berlin School of Business and Innovation (BSBI)  
 > 📄 **[Read the Full Dissertation (PDF)](./docs/Q1039255_Barbaros_Yesilova_Dissertation.pdf)**
 
@@ -169,7 +169,7 @@ If you reference this work or codebase in your research, please cite:
 
 ```bibtex
 @thesis{yesilova2026codebaserag,
-  author       = {Ye{\c{s}}ilova, Barbaros},
+  author       = {Yesilova, Barbaros},
   title        = {Automatic Code Base Analysis and Architectural Querying System Using Retrieval-Augmented Generation (RAG) and Large Language Models},
   school       = {University for the Creative Arts (UCA) and Berlin School of Business and Innovation (BSBI)},
   type         = {BSc Dissertation},

@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this software or reference this dissertation, please cite it as below."
 authors:
-  - family-names: "Yeşilova"
+  - family-names: "Yesilova"
     given-names: "Barbaros"
     affiliation: "University for the Creative Arts (UCA) & Berlin School of Business and Innovation (BSBI)"
 title: "Automatic Code Base Analysis and Architectural Querying System Using Retrieval-Augmented Generation (RAG) and Large Language Models"
