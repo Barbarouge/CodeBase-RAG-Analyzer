@@ -3,6 +3,7 @@ message: "If you use this software or reference this dissertation, please cite i
 authors:
   - family-names: "Yeşilova"
     given-names: "Barbaros"
+    affiliation: "University for the Creative Arts (UCA) & Berlin School of Business and Innovation (BSBI)"
 title: "Automatic Code Base Analysis and Architectural Querying System Using Retrieval-Augmented Generation (RAG) and Large Language Models"
 version: 1.0.0
 date-released: 2026-11-07

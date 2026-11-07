@@ -5,11 +5,14 @@
 [![ChromaDB](https://img.shields.io/badge/VectorDB-ChromaDB-orange.svg)](https://www.trychroma.com/)
 [![Ollama](https://img.shields.io/badge/Local_Inference-Ollama_%7C_Qwen_2.5-purple.svg)](https://ollama.com/)
 [![Streamlit](https://img.shields.io/badge/UI-Streamlit-red.svg)](https://streamlit.io/)
+[![Dissertation PDF](https://img.shields.io/badge/Dissertation-PDF-b31b1b.svg)](./docs/Q1039255_Barbaros_Yesilova_Dissertation.pdf)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 > **BSc Computer Science and Digitisation Dissertation Project**  
 > *Automatic Code Base Analysis and Architectural Querying System Using Retrieval-Augmented Generation (RAG) and Large Language Models*  
-> **Author:** Barbaros Yeşilova
+> **Author:** Barbaros Yeşilova  
+> **Institution:** University for the Creative Arts (UCA) & Berlin School of Business and Innovation (BSBI)  
+> 📄 **[Read the Full Dissertation (PDF)](./docs/Q1039255_Barbaros_Yesilova_Dissertation.pdf)**
 
 ## 📌 Overview & Problem Statement
 While Large Language Models (LLMs) excel at code generation and explanation, deploying them on enterprise-scale codebases faces two major hurdles:
@@ -145,6 +148,8 @@ After initializing the AST vector database (`./chroma_db`) via the Streamlit int
 ```text
 CodeBase-RAG-Analyzer/
 ├── app.py                          # Main Streamlit UI, AST parser & LCEL RAG pipeline
+├── docs/
+│   └── Q1039255_Barbaros_Yesilova_Dissertation.pdf  # Full BSc Dissertation (PDF)
 ├── scripts/
 │   ├── build_baseline_db.py        # Builds naive recursive chunking baseline DB
 │   ├── evaluate_retrieval.py       # Evaluates Hit Rate (@3) and MRR across 15 queries
@@ -166,6 +171,7 @@ If you reference this work or codebase in your research, please cite:
 @thesis{yesilova2026codebaserag,
   author       = {Ye{\c{s}}ilova, Barbaros},
   title        = {Automatic Code Base Analysis and Architectural Querying System Using Retrieval-Augmented Generation (RAG) and Large Language Models},
+  school       = {University for the Creative Arts (UCA) and Berlin School of Business and Innovation (BSBI)},
   type         = {BSc Dissertation},
   year         = {2026},
   url          = {https://github.com/Barbarouge/CodeBase-RAG-Analyzer}
