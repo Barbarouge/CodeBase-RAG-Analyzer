@@ -1,16 +1,16 @@
-# Ortam değişkenleri ve gizli anahtarlar
+# Environment variables and secret keys
 .env
 
-# Python önbellekleri ve sanal ortam
+# Python bytecode cache and virtual environments
 __pycache__/
 *.py[cod]
 venv/
 .venv/
 
-# Vektör Veritabanları ve Klonlanan Test Reposu (Yerelde oluşturulacak)
+# Vector databases and cloned target repositories (generated locally)
 chroma_db/
 chroma_db_baseline/
 flask/
 
-# OS dosyaları
+# OS-specific files
 .DS_Store

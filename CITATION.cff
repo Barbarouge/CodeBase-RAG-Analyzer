@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software or reference this dissertation, please cite it as below."
+authors:
+  - family-names: "Yeşilova"
+    given-names: "Barbaros"
+title: "Automatic Code Base Analysis and Architectural Querying System Using Retrieval-Augmented Generation (RAG) and Large Language Models"
+version: 1.0.0
+date-released: 2026-11-07
+url: "https://github.com/Barbarouge/CodeBase-RAG-Analyzer"
+repository-code: "https://github.com/Barbarouge/CodeBase-RAG-Analyzer"
+license: MIT
+type: software
+keywords:
+  - retrieval-augmented-generation
+  - abstract-syntax-tree
+  - large-language-models
+  - static-code-analysis
+  - chromadb
+  - ollama
+  - ragas

@@ -5,6 +5,7 @@
 [![ChromaDB](https://img.shields.io/badge/VectorDB-ChromaDB-orange.svg)](https://www.trychroma.com/)
 [![Ollama](https://img.shields.io/badge/Local_Inference-Ollama_%7C_Qwen_2.5-purple.svg)](https://ollama.com/)
 [![Streamlit](https://img.shields.io/badge/UI-Streamlit-red.svg)](https://streamlit.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 > **BSc Computer Science and Digitisation Dissertation Project**  
 > *Automatic Code Base Analysis and Architectural Querying System Using Retrieval-Augmented Generation (RAG) and Large Language Models*  
@@ -25,6 +26,20 @@ While Large Language Models (LLMs) excel at code generation and explanation, dep
 * **Model-Agnostic Generation Layer:** Built on **LangChain (LCEL)** and **Streamlit**, allowing seamless runtime switching between:
   * 🔒 **On-Premises (Air-Gapped):** `Qwen 2.5 (7B)` via Ollama for 100% data sovereignty.
   * ☁️ **Cloud API:** `Google Gemini 3.5 Flash` for low-latency, high-capacity pedagogical design pattern mapping.
+
+```mermaid
+flowchart LR
+    A["Target Codebase (Flask)"] --> B["Python AST Parser"]
+    B -->|"<= 4000 chars"| C["Syntactic AST Chunk"]
+    B -->|"> 4000 chars"| D["Hybrid Recursive Fallback"]
+    C --> E["Ollama Embeddings (nomic-embed-text)"]
+    D --> E
+    E --> F[("ChromaDB Vector Store")]
+    Q["Architectural Query"] --> F
+    F -->|"Top-k (k=3) Context"| G["LCEL Prompt Layer"]
+    G --> H["Local SLM (Qwen 2.5 7B)"]
+    G --> I["Cloud LLM (Gemini 3.5 Flash)"]
+```
 
 ---
 
@@ -57,8 +72,107 @@ Evaluated using the **RAGAS** framework configured with a privacy-preserving loc
 
 ### Prerequisites
 1. **Python 3.11+**
-2. **[Ollama](https://ollama.com/)** installed and running locally.
+2. **[Ollama](https://ollama.com/)** installed and running locally (`ollama serve`).
 3. Pull the required local embedding and inference models via Ollama:
    ```bash
    ollama pull nomic-embed-text
    ollama pull qwen2.5:7b
+   ```
+
+### Installation & Setup
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Barbarouge/CodeBase-RAG-Analyzer.git
+   cd CodeBase-RAG-Analyzer
+   ```
+
+2. **Create and activate a virtual environment:**
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+   ```
+
+3. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Clone the target benchmark repository (Flask):**
+   ```bash
+   git clone https://github.com/pallets/flask.git ./flask
+   ```
+
+5. **Configure environment variables (Optional for Cloud Inference):**
+   ```bash
+   cp .env.example .env
+   ```
+   Edit `.env` and provide your `GEMINI_API_KEY` if you plan to evaluate or query the cloud model. Local inference via Ollama requires no API keys.
+
+---
+
+## 💻 Usage
+
+### 1. Interactive Streamlit Application
+Launch the web interface to build the AST vector database and interactively query the codebase:
+```bash
+streamlit run app.py
+```
+1. Open the **⚙️ Knowledge Base Management** expander and click **🔨 Parse & Save (Build DB)** to parse `./flask/src/flask` into `./chroma_db`.
+2. Choose between **Local LLM** (`Qwen 2.5 7B`) or **Gemini 3.5 Flash**.
+3. Submit architectural queries and inspect the generated explanation alongside the retrieved AST blocks and inference latency.
+
+### 2. Reproducing Dissertation Benchmarks
+After initializing the AST vector database (`./chroma_db`) via the Streamlit interface, you can reproduce all experimental tables from the dissertation:
+
+1. **Build the Naive Baseline Vector Database (`./chroma_db_baseline`):**
+   ```bash
+   python scripts/build_baseline_db.py
+   ```
+
+2. **Run Retrieval Evaluation (Hit Rate @3 & MRR):**
+   ```bash
+   python scripts/evaluate_retrieval.py
+   ```
+
+3. **Run Generation & Local RAGAS Evaluation (Latency, Answer Relevance & Faithfulness):**
+   ```bash
+   python scripts/evaluate_generation.py
+   ```
+
+---
+
+## 📂 Repository Structure
+```text
+CodeBase-RAG-Analyzer/
+├── app.py                          # Main Streamlit UI, AST parser & LCEL RAG pipeline
+├── scripts/
+│   ├── build_baseline_db.py        # Builds naive recursive chunking baseline DB
+│   ├── evaluate_retrieval.py       # Evaluates Hit Rate (@3) and MRR across 15 queries
+│   └── evaluate_generation.py      # Evaluates Qwen 2.5 vs. Gemini via local RAGAS judge
+├── requirements.txt                # Python package dependencies
+├── .env.example                    # Environment variable template
+├── .gitignore                      # Ignored local artifacts, venv, and vector stores
+├── CITATION.cff                    # Academic citation metadata
+├── LICENSE                         # MIT License
+└── README.md                       # Project documentation
+```
+
+---
+
+## 📖 Citation
+If you reference this work or codebase in your research, please cite:
+
+```bibtex
+@thesis{yesilova2026codebaserag,
+  author       = {Ye{\c{s}}ilova, Barbaros},
+  title        = {Automatic Code Base Analysis and Architectural Querying System Using Retrieval-Augmented Generation (RAG) and Large Language Models},
+  type         = {BSc Dissertation},
+  year         = {2026},
+  url          = {https://github.com/Barbarouge/CodeBase-RAG-Analyzer}
+}
+```
+
+---
+
+## 📄 License
+This project is licensed under the [MIT License](./LICENSE).
