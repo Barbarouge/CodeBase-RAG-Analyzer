@@ -1,16 +1,16 @@
-# API Keys and Environments
+# Ortam değişkenleri ve gizli anahtarlar
 .env
-.venv/
-venv/
-ENV/
 
-# Vector Database
-chroma_db/
-
-# Target Codebase (Do not push the cloned framework)
-flask/
-
-# Python Cache
+# Python önbellekleri ve sanal ortam
 __pycache__/
 *.py[cod]
-*$py.class
+venv/
+.venv/
+
+# Vektör Veritabanları ve Klonlanan Test Reposu (Yerelde oluşturulacak)
+chroma_db/
+chroma_db_baseline/
+flask/
+
+# OS dosyaları
+.DS_Store

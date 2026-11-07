@@ -1,4 +1,4 @@
-# Automatic Code Base Analysis and Architectural Querying System Using RAG & LLMs
+# CodeBase-RAG-Analyzer: AST-Aware Architectural Querying System
 
 [![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-blue.svg)](https://www.python.org/)
 [![LangChain](https://img.shields.io/badge/Orchestration-LangChain-green.svg)](https://www.langchain.com/)
@@ -7,6 +7,7 @@
 [![Streamlit](https://img.shields.io/badge/UI-Streamlit-red.svg)](https://streamlit.io/)
 
 > **BSc Computer Science and Digitisation Dissertation Project**  
+> *Automatic Code Base Analysis and Architectural Querying System Using Retrieval-Augmented Generation (RAG) and Large Language Models*  
 > **Author:** Barbaros Yeşilova
 
 ## 📌 Overview & Problem Statement
@@ -14,7 +15,7 @@ While Large Language Models (LLMs) excel at code generation and explanation, dep
 1. **Context Fragmentation in Traditional RAG:** Standard character/token-based text splitters break syntactic boundaries (classes, functions), diluting semantic context and causing hallucinations.
 2. **The Privacy vs. Performance Dilemma:** Sending proprietary source code to third-party cloud APIs introduces severe intellectual property and data leakage risks.
 
-This repository implements a **privacy-first, model-agnostic Retrieval-Augmented Generation (RAG) architecture** that parses source code into an **Abstract Syntax Tree (AST)**. Instead of treating code as flat text, it indexes structural entities (`FunctionDef`, `ClassDef`, `AsyncFunctionDef`) with an adaptive recursive fallback mechanism for monolithic blocks (>4,000 characters).
+**CodeBase-RAG-Analyzer** implements a **privacy-first, model-agnostic Retrieval-Augmented Generation (RAG) architecture** that parses source code into an **Abstract Syntax Tree (AST)**. Instead of treating code as flat text, it indexes structural entities (`FunctionDef`, `ClassDef`, `AsyncFunctionDef`) with an adaptive recursive fallback mechanism for monolithic blocks (>4,000 characters).
 
 ---
 
@@ -61,4 +62,3 @@ Evaluated using the **RAGAS** framework configured with a privacy-preserving loc
    ```bash
    ollama pull nomic-embed-text
    ollama pull qwen2.5:7b
-   ollama pull qwen2.5-coder:7b
